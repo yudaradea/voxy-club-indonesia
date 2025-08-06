@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] {
+    display: none;
+}
+
+.button-1 {
+    @apply px-8 py-3 text-lg font-semibold transition transform rounded-xl bg-gradient-to-r from-sky-500 to-cyan-500 hover:shadow-xl;
+}
+
+.button-menu {
+    @apply px-6 py-2 lg:py-[10px] text-base font-semibold transition transform rounded-xl bg-gradient-to-r from-sky-500 to-cyan-500 hover:shadow-xl text-white;
+}
+
+.button-login {
+    @apply px-6 py-2 text-base font-semibold text-slate-700 border-2 border-sky-500 rounded-xl hover:shadow-xl;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #0ea5e9, #06b6d4);
+    border-radius: 3px;
+}
+
+.grecaptcha-badge {
+    visibility: hidden !important;
+}
