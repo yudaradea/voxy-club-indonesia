@@ -108,7 +108,8 @@
             </div>
 
             <!-- Hero Image -->
-            <img src="{{ Storage::url($event->image) }}" alt="Flyer Event" class="hero">
+            <img src="http://voxy-club-indonesia.test{{ Storage::url($event->image) }}" alt="Flyer Event"
+                class="hero">
 
             <!-- Body -->
             <div class="body" style="background: #fff; padding: 30px;">
