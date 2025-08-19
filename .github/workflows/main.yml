@@ -3,7 +3,7 @@ name: Deploy Laravel ke Rumahweb
 on:
   push:
     branches:
-      - main   # sesuaikan dengan branch utama kamu
+      - main
 
 jobs:
   deploy:
@@ -13,27 +13,27 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Install Dependencies & Build Frontend
+        run: |
+          composer install --no-scripts --no-dev --optimize-autoloader
+          npm install
+          npm run build
+
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          # Tambahkan known_hosts biar tidak ditanya fingerprint
           ssh-keyscan -p $SSH_PORT $SSH_HOST >> ~/.ssh/known_hosts
 
       - name: Deploy ke Server Rumahweb
         run: |
+          scp -P $SSH_PORT -r ./public/build $SSH_USER@$SSH_HOST:/home/$SSH_USER/voxy-club-indonesia/public/
           ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "
             cd /home/$SSH_USER/voxy-club-indonesia &&
             git pull origin main &&
             composer install --no-scripts --no-dev --optimize-autoloader &&
-            php artisan package:discover &&
-            php artisan filament:upgrade &&
-            php artisan vendor:publish --tag=laravel-assets --ansi --force &&
-            php artisan vendor:publish --tag=laravel-assets --force &&
-            npm install &&
-            npm run build &&
-            php artisan migrate &&
+            php artisan migrate --force &&
             php artisan config:clear &&
             php artisan cache:clear &&
             php artisan route:clear &&
@@ -41,7 +41,7 @@ jobs:
           "
 
     env:
-      SSH_HOST: ${{ secrets.SSH_HOST }}          # contoh: domainkamu.com atau IP server
-      SSH_USER: ${{ secrets.SSH_USER }}          # contoh: username cPanel / SSH
-      SSH_PORT: ${{ secrets.SSH_PORT }}          # contoh: 65002 (isi sesuai Rumahweb kasih)
-      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # hasil export private key dari PuTTY ke OpenSSH
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      SSH_USER: ${{ secrets.SSH_USER }}
+      SSH_PORT: ${{ secrets.SSH_PORT }}
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
