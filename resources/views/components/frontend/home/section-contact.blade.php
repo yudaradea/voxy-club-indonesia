@@ -55,7 +55,7 @@
             <div>
                 <h3 class="mb-6 text-2xl font-bold">Our Location</h3>
                 <div class="w-full aspect-[16/10] md:aspect-[16/7] rounded-lg overflow-hidden lg:h-[450px]">
-                    {!! str_replace(['width="600"', 'height="450"'], ['width="100%"', 'height="450"'], $contact->maps) !!}
+                    {!! str_replace(['width="600"', 'height="450"'], ['width="100%"', 'height="100%"'], $contact->maps) !!}
                 </div>
             </div>
         </div>
