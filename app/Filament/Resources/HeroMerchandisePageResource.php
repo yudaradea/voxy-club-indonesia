@@ -33,7 +33,7 @@ class HeroMerchandisePageResource extends Resource
             ->schema([
                 TextInput::make('title')->required(),
                 TextInput::make('subtitle')->required(),
-                FileUpload::make('image')->required()->directory('hero-merchandise-images'),
+                FileUpload::make('image')->image()->required()->directory('hero-merchandise-images'),
             ]);
     }
 
