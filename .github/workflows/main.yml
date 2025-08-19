@@ -1,49 +1,47 @@
-name: Deploy to Server
+name: Deploy Laravel ke Rumahweb
 
 on:
   push:
     branches:
-      - main   # ganti sesuai branch production kamu
+      - main   # sesuaikan dengan branch utama kamu
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      # Setup PHP
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.3'
-          extensions: mbstring, intl, pdo_mysql, bcmath, curl, dom, gd, xml
-
-      # Install Dependencies via Composer
-      - name: Install PHP dependencies
-        run: composer install --no-dev --optimize-autoloader
-
-      # Setup Node.js
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
-      # Install JS deps & build
-      - name: Install npm dependencies & Build
+      - name: Setup SSH
         run: |
-          npm ci
-          npm run build
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          # Tambahkan known_hosts biar tidak ditanya fingerprint
+          ssh-keyscan -p $SSH_PORT $SSH_HOST >> ~/.ssh/known_hosts
 
-      # Deploy to Server via rsync
-      - name: Deploy to Server
-        uses: burnett01/rsync-deployments@6.0.0
-        with:
-          switches: -avz --delete
-          path: ./        # folder source (semua hasil build + vendor)
-          remote_path: /home/$SSH_USER/voxy-club-indonesia   # ganti sesuai folder server
-          remote_host: ${{ secrets.SSH_HOST }}          # contoh: domainkamu.com atau IP server
-          remote_user: ${{ secrets.SSH_USER }}          # contoh: username cPanel / SSH
-          remote_port: ${{ secrets.SSH_PORT }}          # contoh: 65002 (isi sesuai Rumahweb kasih)
-          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}  # hasil export private key dari PuTTY ke OpenSSH
+      - name: Deploy ke Server Rumahweb
+        run: |
+          ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "
+            cd /home/$SSH_USER/voxy-club-indonesia &&
+            git pull origin main &&
+            composer install --no-scripts --no-dev --optimize-autoloader &&
+            php artisan package:discover &&
+            php artisan filament:upgrade &&
+            php artisan vendor:publish --tag=laravel-assets --ansi --force &&
+            php artisan vendor:publish --tag=laravel-assets --force &&
+            npm install &&
+            npm run build &&
+            php artisan migrate &&
+            php artisan config:clear &&
+            php artisan cache:clear &&
+            php artisan route:clear &&
+            php artisan view:clear
+          "
+
+    env:
+      SSH_HOST: ${{ secrets.SSH_HOST }}          # contoh: domainkamu.com atau IP server
+      SSH_USER: ${{ secrets.SSH_USER }}          # contoh: username cPanel / SSH
+      SSH_PORT: ${{ secrets.SSH_PORT }}          # contoh: 65002 (isi sesuai Rumahweb kasih)
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # hasil export private key dari PuTTY ke OpenSSH
