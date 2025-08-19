@@ -3,44 +3,39 @@ name: Deploy Laravel ke Rumahweb
 on:
   push:
     branches:
-      - main   # Jalankan tiap kali ada push ke branch main
+      - main   # sesuaikan dengan branch utama kamu
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Ambil kode dari repo
-      - name: Checkout Code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2. Install dependency Laravel & build asset
-      - name: Install Dependencies
+      - name: Setup SSH
         run: |
-          composer install --no-dev --prefer-dist --optimize-autoloader
-          npm install && npm run build
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          # Tambahkan known_hosts biar tidak ditanya fingerprint
+          ssh-keyscan -p $SSH_PORT $SSH_HOST >> ~/.ssh/known_hosts
 
-      # 3. Upload hasil build ke server Rumahweb
-      - name: Deploy ke Rumahweb via rsync
-        uses: burnett01/rsync-deployments@5.2
-        with:
-          switches: -avzr --delete --exclude ".git*" --exclude "node_modules" --exclude ".env"
-          path: ./ 
-          remote_path: /home/voxa7613/voxy-club-indonesia/    # Ganti USERNAME
-          remote_host: voxyclubindonesia.com                # Ganti domain atau IP Rumahweb
-          remote_user: voxa7613                       # Ganti username SSH
-          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      # 4. Jalankan perintah Artisan di server
-      - name: Jalankan Artisan Commands di Server
-        uses: appleboy/ssh-action@v0.1.8
-        with:
-          host: voxyclubindonesia.com
-          username: voxa7613
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd /home/voxa7613/voxy-club-indonesia
-            php artisan config:clear
-            php artisan cache:clear
-            php artisan route:clear
+      - name: Deploy ke Server Rumahweb
+        run: |
+          ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "
+            cd /home/$SSH_USER/voxy-club-indonesia &&
+            git pull origin main &&
+            composer install --no-interaction --prefer-dist --optimize-autoloader &&
+            php artisan migrate --force &&
+            php artisan config:clear &&
+            php artisan cache:clear &&
+            php artisan route:clear &&
             php artisan view:clear
+          "
+
+    env:
+      SSH_HOST: ${{ secrets.SSH_HOST }}          # contoh: domainkamu.com atau IP server
+      SSH_USER: ${{ secrets.SSH_USER }}          # contoh: username cPanel / SSH
+      SSH_PORT: ${{ secrets.SSH_PORT }}          # contoh: 65002 (isi sesuai Rumahweb kasih)
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # hasil export private key dari PuTTY ke OpenSSH
