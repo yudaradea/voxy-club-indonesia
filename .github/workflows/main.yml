@@ -30,15 +30,6 @@ jobs:
         run: |
           scp -P $SSH_PORT -r ./public/build $SSH_USER@$SSH_HOST:/home/$SSH_USER/voxy-club-indonesia/public/
           scp -P $SSH_PORT -r ./public/build $SSH_USER@$SSH_HOST:/home/$SSH_USER/public_html/
-          ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "
-            cd /home/$SSH_USER/voxy-club-indonesia &&
-            git pull &&
-            php artisan migrate &&
-            php artisan config:clear &&
-            php artisan cache:clear &&
-            php artisan route:clear &&
-            php artisan view:clear
-          "
 
     env:
       SSH_HOST: ${{ secrets.SSH_HOST }}
