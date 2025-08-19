@@ -10,16 +10,25 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\CustomResetPasswordMail;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, CanResetPassword;
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return true;
+    }
 
     public function sendPasswordResetNotification($token)
     {
         Mail::to($this->email)->send(new CustomResetPasswordMail($token, $this->email));
     }
+
+
 
     public function scopSearch($query, $value)
     {
