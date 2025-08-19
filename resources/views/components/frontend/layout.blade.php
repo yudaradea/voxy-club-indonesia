@@ -13,13 +13,13 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="Voxy Club Indonesia {{ $title ?? config('app.name') }}">
-    <meta property="og:description" content="{{ $description ?? 'Platform event terlengkap di Indonesia' }}">
+    <meta property="og:description" content="{{ $description ?? 'Komunitas mobil paling ramah se Indonesia' }}">
     <meta property="og:image" content="{{ $image ?? asset('images/og-default.jpg') }}">
 
     <!-- Default Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ $title ?? config('app.name') }}">
-    <meta name="twitter:description" content="{{ $description ?? 'Platform event terlengkap di Indonesia' }}">
+    <meta name="twitter:description" content="{{ $description ?? 'Komunitas mobil paling ramah se Indonesia' }}">
     <meta name="twitter:image" content="{{ $image ?? asset('images/og-default.jpg') }}">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
