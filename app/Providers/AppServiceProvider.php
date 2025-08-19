@@ -38,11 +38,11 @@ class AppServiceProvider extends ServiceProvider
             ]);
         });
 
-        Filament::serving(function () {
-            if (!Auth::check() || Auth::user()->role !== 'admin') {
-                abort(403, 'Unauthorized');
-            }
-        });
+        // Filament::serving(function () {
+        //     if (!Auth::check() || Auth::user()->role !== 'admin') {
+        //         abort(403, 'Unauthorized');
+        //     }
+        // });
 
         // agar semua pagination Livewire menulis ?page=... ke URL
         Livewire::setScriptRoute(function ($handle) {
