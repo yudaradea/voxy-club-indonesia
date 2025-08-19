@@ -1,47 +1,47 @@
-# name: Deploy Laravel ke Rumahweb
+name: Deploy Laravel ke Rumahweb
 
-# on:
-#   push:
-#     branches:
-#       - main
+on:
+  push:
+    branches:
+      - main
 
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - name: Checkout repository
-#         uses: actions/checkout@v3
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-#       - name: Install Dependencies & Build Frontend
-#         run: |
-#           composer install --no-scripts --no-dev --optimize-autoloader
-#           npm install
-#           npm run build
+      - name: Install Dependencies & Build Frontend
+        run: |
+          composer install --no-scripts --no-dev --optimize-autoloader
+          npm install
+          npm run build
 
-#       - name: Setup SSH
-#         run: |
-#           mkdir -p ~/.ssh
-#           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-#           chmod 600 ~/.ssh/id_rsa
-#           ssh-keyscan -p $SSH_PORT $SSH_HOST >> ~/.ssh/known_hosts
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -p $SSH_PORT $SSH_HOST >> ~/.ssh/known_hosts
 
-#       - name: Deploy ke Server Rumahweb
-#         run: |
-#           scp -P $SSH_PORT -r ./public/build $SSH_USER@$SSH_HOST:/home/$SSH_USER/voxy-club-indonesia/public/
-#           ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "
-#             cd /home/$SSH_USER/voxy-club-indonesia &&
-#             git pull origin main &&
-#             composer install --no-scripts --no-dev --optimize-autoloader &&
-#             php artisan migrate --force &&
-#             php artisan config:clear &&
-#             php artisan cache:clear &&
-#             php artisan route:clear &&
-#             php artisan view:clear
-#           "
+      - name: Deploy ke Server Rumahweb
+        run: |
+          scp -P $SSH_PORT -r ./public/build $SSH_USER@$SSH_HOST:/home/$SSH_USER/voxy-club-indonesia/public/
+          ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "
+            cd /home/$SSH_USER/voxy-club-indonesia &&
+            git pull origin main &&
+            composer install --no-scripts --no-dev --optimize-autoloader &&
+            php artisan migrate --force &&
+            php artisan config:clear &&
+            php artisan cache:clear &&
+            php artisan route:clear &&
+            php artisan view:clear
+          "
 
-#     env:
-#       SSH_HOST: ${{ secrets.SSH_HOST }}
-#       SSH_USER: ${{ secrets.SSH_USER }}
-#       SSH_PORT: ${{ secrets.SSH_PORT }}
-#       SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+    env:
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      SSH_USER: ${{ secrets.SSH_USER }}
+      SSH_PORT: ${{ secrets.SSH_PORT }}
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
