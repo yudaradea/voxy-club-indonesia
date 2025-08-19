@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Livewire\Forms\RegisterForm;
 use App\Mail\RegisterMailForm;
+use App\Models\Term;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 
@@ -56,6 +57,9 @@ class Register extends Component
     }
     public function render()
     {
-        return view('livewire.auth.register');
+        $term = Term::first();
+        return view('livewire.auth.register', [
+            'term' => $term
+        ]);
     }
 }

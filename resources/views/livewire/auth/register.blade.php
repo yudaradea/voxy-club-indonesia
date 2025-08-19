@@ -17,13 +17,9 @@
             <!-- Step 1: Terms & Policy -->
             <div x-show="$wire.step === 1" x-transition>
                 <h2 class="mb-4 text-2xl font-semibold text-gray-800">📜 Terms & Policy</h2>
-                <div class="p-4 space-y-4 overflow-y-auto text-sm text-gray-700 bg-gray-100 rounded-xl max-h-72">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat.</p>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur.</p>
+                <div
+                    class="p-4 space-y-4 overflow-y-auto text-sm prose text-gray-700 bg-gray-100 rounded-xl max-h-72 prose-p:text-sm max-w-none">
+                    {!! $term->content !!}
                 </div>
 
                 <div class="flex items-center mt-6">

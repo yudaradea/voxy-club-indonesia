@@ -20,7 +20,7 @@
     {{-- ARTICLE CONTENT --}}
     <section class="py-12">
         <div class="container">
-            <article class="prose text-gray-700 prse-p:text-sm max-w-none">
+            <article class="prose text-gray-700 prose-p:text-sm max-w-none">
                 {!! $story->content !!}
             </article>
         </div>
