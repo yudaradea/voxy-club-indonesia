@@ -3,7 +3,7 @@ name: Deploy Laravel ke Rumahweb
 on:
   push:
     branches:
-      - main   # jalankan tiap kali push ke branch main
+      - main
 
 jobs:
   deploy:
@@ -26,9 +26,71 @@ jobs:
           remote_path: /home/voxa7613/voxy-club-indonesia/
           remote_host: voxyclubindonesia.com
           remote_user: voxa7613
-          remote_key: ${{ b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABCk+lIPIcAmuXoS9CM6eNnqAAAAEAAAAAEAAAEXAAAAB3NzaC1yc2EAAAADAQABAAABAQDF6LlhWiyxXzIBLkyI7pIAr+VyhkwyT6MClNZOCWpQZxZIkhqMwYzjsx0aRrKramhIAOMrpma5fZnZAzaBFv7GEFSwfxatfIFMDG4bDL/Gb0YPeA1QMu4L9gfS+IHpaPiHeu25zDeySpomH8JwPmo3Sy3HKnpCeqil2RMFOmkPg/SpxFuq3ALARGeLlS67sBjj3W0z/dfllZLeO4NaDBpZIHoCWBrmnzqQIjKcy2O4q4LpzGiODFgvtEVAjm72o3FdgGYWs2bcuLU7djN2Ie2lXDzgbXQdCpsZPRsB785NTzEu0fhmhSWlB0MmiOrGGhkv5vJRExpFihCun7/NKpTzAAADwKyX7b+IXA6/QCs+Rc49uCyNyXTdWJM2vLeJS0h3l3Qymu4snkdvRwpPuSCl4hWmKvfGjj0N6ph1wGXdMqPmCiRRlcHmQ2VzlvJZGc3gsK96dVHa5Xy42kA7HMZ5KTE7yi9DpleZOOg0K56AnzzNgLilqYmixC+vIj//aNzXCkJRYitLg0ZIG2DDpbkvcIxUcsxNypOMasSwCj/gV1g5NfpNjP4YLpvJ/r/9frhaBAmnZ3SgbHmqkh09UI4vzgALa0UrPCrdW3WqurSK3tGbHpZYArLtW3fyjdWvMPIPgrET8CXTLPOUAVCg+DI8Zl5PCgV8QyDQU9QYfxBIyYV1jnXKVpkVPKce9IuxhIDxMrlvPQCddP3XEoPCVjc4UODQjSunBuRC6sLfdNH3ShplHsxCgrxNO/Kk1b8i9TCpUW7uSTjjkM3s8fZRFuQKAUWWi9kIl0s5QewbtFi6Tyl+6fsy796+cbAW2P2T4BFfdildEY32KIBC4wBQpdDrQqGP3tWOVA+LRXfZf9ZhNIJEryF4/5X+Vhj9XnGepeP6Rng1pC+1jPYfydGrb7JMr3AFz59sVpZGiX2gUDDqbG4cUukqxPKSDbpq0N/GtTCzze/sOTaZ5HAdnKc26ApxoyFgfKuQG+0kbausg0OnCaJKY/gs54ppM0LbWH5slmBSxWx3G4mlWh2xDx2eIoL/vgnCqwfKT9a/nooDeaT8OqdPCaJN/g1Nfq0fzT1k+cJzVLnQAo7u04DMpOvMtrnBB9ztpwAMzh/MiYvQ4QUSfs04mzMpOExFY407vPF+O5l980Q26gwnG0E0Twm+OzJtjQ8DLBVluSb9gIMCmkL8PdKGXelsYNQz3ovjaF28PkXKoDmlKy5zMvMfuqlSJN1Ik6sX1bVOQbdaOGtktKLMa7P4fXgW4M0Gxu2XRAL1NLlOeuKTzlrOnxxvFg+mggmt+M9MyLN1Tqio1CfymklHKO0Amcb+ymHDim6xpqT0HE0ZdayGxPtgTC1erPwqlOJOH9W6JYQA7/ue7OwDz4wkrCI4BdlwBMrx55oqyxpC2XQki3MIYfwTGELXqjjrBRRAUXgiuHQdhpZp6popAtsVHvkvS2TT4zHP7q7MfV7JvUng9zS2pb5nI4CykpwPzkOlb39CnyRKA5NS0Di4sCWZAKu83QH/AissF7+aMLkGe43R2V2IhsX2j5e7Si/E0egYLFTFS3ZFm21kpF7h/3VsZ5tPm7wAent3pV+QK/AAYoAkgOZGykQ/70TwW7axHl2QLECMjg== }}
+          remote_key: ${{ -----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABCk+lIPIc
+AmuXoS9CM6eNnqAAAAEAAAAAEAAAEXAAAAB3NzaC1yc2EAAAADAQABAAABAQDF6LlhWiyx
+XzIBLkyI7pIAr+VyhkwyT6MClNZOCWpQZxZIkhqMwYzjsx0aRrKramhIAOMrpma5fZnZAz
+aBFv7GEFSwfxatfIFMDG4bDL/Gb0YPeA1QMu4L9gfS+IHpaPiHeu25zDeySpomH8JwPmo3
+Sy3HKnpCeqil2RMFOmkPg/SpxFuq3ALARGeLlS67sBjj3W0z/dfllZLeO4NaDBpZIHoCWB
+rmnzqQIjKcy2O4q4LpzGiODFgvtEVAjm72o3FdgGYWs2bcuLU7djN2Ie2lXDzgbXQdCpsZ
+PRsB785NTzEu0fhmhSWlB0MmiOrGGhkv5vJRExpFihCun7/NKpTzAAADwKyX7b+IXA6/QC
+s+Rc49uCyNyXTdWJM2vLeJS0h3l3Qymu4snkdvRwpPuSCl4hWmKvfGjj0N6ph1wGXdMqPm
+CiRRlcHmQ2VzlvJZGc3gsK96dVHa5Xy42kA7HMZ5KTE7yi9DpleZOOg0K56AnzzNgLilqY
+mixC+vIj//aNzXCkJRYitLg0ZIG2DDpbkvcIxUcsxNypOMasSwCj/gV1g5NfpNjP4YLpvJ
+/r/9frhaBAmnZ3SgbHmqkh09UI4vzgALa0UrPCrdW3WqurSK3tGbHpZYArLtW3fyjdWvMP
+IPgrET8CXTLPOUAVCg+DI8Zl5PCgV8QyDQU9QYfxBIyYV1jnXKVpkVPKce9IuxhIDxMrlv
+PQCddP3XEoPCVjc4UODQjSunBuRC6sLfdNH3ShplHsxCgrxNO/Kk1b8i9TCpUW7uSTjjkM
+3s8fZRFuQKAUWWi9kIl0s5QewbtFi6Tyl+6fsy796+cbAW2P2T4BFfdildEY32KIBC4wBQ
+pdDrQqGP3tWOVA+LRXfZf9ZhNIJEryF4/5X+Vhj9XnGepeP6Rng1pC+1jPYfydGrb7JMr3
+AFz59sVpZGiX2gUDDqbG4cUukqxPKSDbpq0N/GtTCzze/sOTaZ5HAdnKc26ApxoyFgfKuQ
+G+0kbausg0OnCaJKY/gs54ppM0LbWH5slmBSxWx3G4mlWh2xDx2eIoL/vgnCqwfKT9a/no
+oDeaT8OqdPCaJN/g1Nfq0fzT1k+cJzVLnQAo7u04DMpOvMtrnBB9ztpwAMzh/MiYvQ4QUS
+fs04mzMpOExFY407vPF+O5l980Q26gwnG0E0Twm+OzJtjQ8DLBVluSb9gIMCmkL8PdKGXe
+lsYNQz3ovjaF28PkXKoDmlKy5zMvMfuqlSJN1Ik6sX1bVOQbdaOGtktKLMa7P4fXgW4M0G
+xu2XRAL1NLlOeuKTzlrOnxxvFg+mggmt+M9MyLN1Tqio1CfymklHKO0Amcb+ymHDim6xpq
+T0HE0ZdayGxPtgTC1erPwqlOJOH9W6JYQA7/ue7OwDz4wkrCI4BdlwBMrx55oqyxpC2XQk
+i3MIYfwTGELXqjjrBRRAUXgiuHQdhpZp6popAtsVHvkvS2TT4zHP7q7MfV7JvUng9zS2pb
+5nI4CykpwPzkOlb39CnyRKA5NS0Di4sCWZAKu83QH/AissF7+aMLkGe43R2V2IhsX2j5e7
+Si/E0egYLFTFS3ZFm21kpF7h/3VsZ5tPm7wAent3pV+QK/AAYoAkgOZGykQ/70TwW7axHl
+2QLECMjg==
+-----END OPENSSH PRIVATE KEY----- }}
+
+      - name: Jalankan Artisan Commands di Server
+        uses: appleboy/ssh-action@v0.1.8
+        with:
+          host: voxyclubindonesia.com
+          username: voxa7613
+          key: ${{ -----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABCk+lIPIc
+AmuXoS9CM6eNnqAAAAEAAAAAEAAAEXAAAAB3NzaC1yc2EAAAADAQABAAABAQDF6LlhWiyx
+XzIBLkyI7pIAr+VyhkwyT6MClNZOCWpQZxZIkhqMwYzjsx0aRrKramhIAOMrpma5fZnZAz
+aBFv7GEFSwfxatfIFMDG4bDL/Gb0YPeA1QMu4L9gfS+IHpaPiHeu25zDeySpomH8JwPmo3
+Sy3HKnpCeqil2RMFOmkPg/SpxFuq3ALARGeLlS67sBjj3W0z/dfllZLeO4NaDBpZIHoCWB
+rmnzqQIjKcy2O4q4LpzGiODFgvtEVAjm72o3FdgGYWs2bcuLU7djN2Ie2lXDzgbXQdCpsZ
+PRsB785NTzEu0fhmhSWlB0MmiOrGGhkv5vJRExpFihCun7/NKpTzAAADwKyX7b+IXA6/QC
+s+Rc49uCyNyXTdWJM2vLeJS0h3l3Qymu4snkdvRwpPuSCl4hWmKvfGjj0N6ph1wGXdMqPm
+CiRRlcHmQ2VzlvJZGc3gsK96dVHa5Xy42kA7HMZ5KTE7yi9DpleZOOg0K56AnzzNgLilqY
+mixC+vIj//aNzXCkJRYitLg0ZIG2DDpbkvcIxUcsxNypOMasSwCj/gV1g5NfpNjP4YLpvJ
+/r/9frhaBAmnZ3SgbHmqkh09UI4vzgALa0UrPCrdW3WqurSK3tGbHpZYArLtW3fyjdWvMP
+IPgrET8CXTLPOUAVCg+DI8Zl5PCgV8QyDQU9QYfxBIyYV1jnXKVpkVPKce9IuxhIDxMrlv
+PQCddP3XEoPCVjc4UODQjSunBuRC6sLfdNH3ShplHsxCgrxNO/Kk1b8i9TCpUW7uSTjjkM
+3s8fZRFuQKAUWWi9kIl0s5QewbtFi6Tyl+6fsy796+cbAW2P2T4BFfdildEY32KIBC4wBQ
+pdDrQqGP3tWOVA+LRXfZf9ZhNIJEryF4/5X+Vhj9XnGepeP6Rng1pC+1jPYfydGrb7JMr3
+AFz59sVpZGiX2gUDDqbG4cUukqxPKSDbpq0N/GtTCzze/sOTaZ5HAdnKc26ApxoyFgfKuQ
+G+0kbausg0OnCaJKY/gs54ppM0LbWH5slmBSxWx3G4mlWh2xDx2eIoL/vgnCqwfKT9a/no
+oDeaT8OqdPCaJN/g1Nfq0fzT1k+cJzVLnQAo7u04DMpOvMtrnBB9ztpwAMzh/MiYvQ4QUS
+fs04mzMpOExFY407vPF+O5l980Q26gwnG0E0Twm+OzJtjQ8DLBVluSb9gIMCmkL8PdKGXe
+lsYNQz3ovjaF28PkXKoDmlKy5zMvMfuqlSJN1Ik6sX1bVOQbdaOGtktKLMa7P4fXgW4M0G
+xu2XRAL1NLlOeuKTzlrOnxxvFg+mggmt+M9MyLN1Tqio1CfymklHKO0Amcb+ymHDim6xpq
+T0HE0ZdayGxPtgTC1erPwqlOJOH9W6JYQA7/ue7OwDz4wkrCI4BdlwBMrx55oqyxpC2XQk
+i3MIYfwTGELXqjjrBRRAUXgiuHQdhpZp6popAtsVHvkvS2TT4zHP7q7MfV7JvUng9zS2pb
+5nI4CykpwPzkOlb39CnyRKA5NS0Di4sCWZAKu83QH/AissF7+aMLkGe43R2V2IhsX2j5e7
+Si/E0egYLFTFS3ZFm21kpF7h/3VsZ5tPm7wAent3pV+QK/AAYoAkgOZGykQ/70TwW7axHl
+2QLECMjg==
+-----END OPENSSH PRIVATE KEY----- }}
           script: |
             cd /home/voxa7613/voxy-club-indonesia
             php artisan config:clear
             php artisan cache:clear
             php artisan route:clear
+            php artisan view:clear
