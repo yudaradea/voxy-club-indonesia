@@ -45,6 +45,9 @@
 
     <x-frontend.footer />
 
+
+
+
     @livewireScripts
     @stack('scripts')
 </body>

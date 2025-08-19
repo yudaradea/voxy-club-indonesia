@@ -8,6 +8,8 @@ use App\Mail\ContactMailForm;
 use App\Models\Member;
 use App\Models\User;
 use DutchCodingCompany\LivewireRecaptcha\ValidatesRecaptcha;
+use Flasher\Toastr\Prime\Toastr;
+use Flasher\Toastr\Prime\ToastrInterface;
 
 class ContactUsForm extends Component
 {
@@ -49,7 +51,7 @@ class ContactUsForm extends Component
         }
 
         $this->reset(); // reset form & captcha otomatis
-        toastr()->success('Pesan berhasil dikirim!', ['timeOut' => 5000]);
+        toastr()->success('Pesan Berhasil dikirim!', ['timeOut' => 5000, 'closeButton' => true, 'progressBar' => true]);
     }
 
     public function render()
