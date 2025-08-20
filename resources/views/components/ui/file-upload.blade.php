@@ -41,7 +41,7 @@
             <p class="mt-2 text-sm text-gray-600">
                 <span class="font-semibold text-indigo-600">Pilih file untuk diupload</span>
             </p>
-            <p class="mt-1 text-xs text-gray-500">PNG, JPG, GIF hingga 2MB</p>
+            <p class="mt-1 text-xs text-gray-500">PNG, JPG, GIF hingga 5MB</p>
         </div>
     </label>
 </div>
