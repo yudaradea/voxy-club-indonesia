@@ -14,7 +14,7 @@
                 </p>
                 <a href="{{ route('about') }}" class="font-semibold text-sky-600 hover:underline">Learn More →</a>
             </div>
-            <div class="order-1 lg:order-2">
+            <div class="order-1 hidden lg:order-2 lg:block">
                 <img src="{{ Storage::url($about->image_hero) }}" alt="About Us" class="shadow-2xl rounded-2xl" />
             </div>
         </div>

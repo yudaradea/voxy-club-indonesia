@@ -7,7 +7,7 @@
 }
 
 .button-1 {
-    @apply px-8 py-3 text-lg font-semibold transition transform rounded-xl bg-gradient-to-r from-sky-500 to-cyan-500 hover:shadow-xl;
+    @apply px-6 py-2 md:px-8 md:py-3 text-base md:text-lg font-semibold transition transform rounded-xl bg-gradient-to-r from-sky-500 to-cyan-500 hover:shadow-xl;
 }
 
 .button-menu {

@@ -58,9 +58,9 @@
                 </div>
             </template>
 
-            <div class="absolute inset-0 flex items-center justify-center bg-black/50">
+            {{-- <div class="absolute inset-0 flex items-center justify-center bg-black/50">
                 <div class="container flex flex-col items-center text-center text-white">
-                    <h1 class="mb-4 text-3xl font-bold text-center md:text-5xl lg:text-7xl ">
+                    <h1 class="mb-6 text-3xl font-bold text-center md:text-5xl lg:text-7xl ">
                         {{ $heroText->title }}
                     </h1>
                     <p class="mb-8 text-lg md:text-xl lg:text-2xl">
@@ -70,7 +70,7 @@
                         {{ $heroText->button_text }}
                     </a>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </section>
