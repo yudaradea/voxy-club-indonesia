@@ -6,6 +6,7 @@ use App\Filament\Resources\MemberResource\Pages;
 use App\Filament\Resources\MemberResource\RelationManagers\PaymentsRelationManager;
 use App\Models\Member;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -46,6 +47,7 @@ class MemberResource extends Resource
                             ->email()
                             ->required()
                             ->maxLength(255)
+
                             ->afterStateHydrated(
                                 fn($component, $state, $record) =>
                                 $component->state($record?->user?->email)
@@ -53,6 +55,7 @@ class MemberResource extends Resource
 
 
                         Forms\Components\Select::make('user_role')
+
                             ->label('Role')
                             ->required()
                             ->options(['member' => 'Member', 'admin' => 'Admin'])
@@ -72,16 +75,16 @@ class MemberResource extends Resource
 
                 Forms\Components\Section::make('Data Member')
                     ->schema([
-                        Forms\Components\TextInput::make('phone')->required(),
+                        Forms\Components\TextInput::make('phone')->required()->default('08123456789'),
                         Forms\Components\FileUpload::make('profile_photo')
                             ->image()
                             ->directory('profile')
                             ->required(),
-                        Forms\Components\TextInput::make('ktp_sim')->required(),
-                        Forms\Components\TextInput::make('birth_place'),
-                        Forms\Components\DatePicker::make('birth_date')->required(),
+                        Forms\Components\TextInput::make('ktp_sim')->required()->default('12345678901234567890'),
+                        Forms\Components\TextInput::make('birth_place')->default('Jakarta'),
+                        Forms\Components\DatePicker::make('birth_date')->required()->default('01-01-2000'),
                         Forms\Components\Textarea::make('address')->required(),
-                        Forms\Components\Select::make('shirt_size')
+                        Forms\Components\Select::make('shirt_size')->default('XL')
                             ->options([
                                 'S' => 'S',
                                 'M' => 'M',
@@ -96,10 +99,14 @@ class MemberResource extends Resource
                                 'R 80' => 'R 80',
                                 'R 90' => 'R 90',
                             ])
-                            ->required(),
-                        Forms\Components\TextInput::make('vehicle_color'),
-                        Forms\Components\TextInput::make('vehicle_year')->numeric()->required(),
-                        Forms\Components\TextInput::make('license_plate')->required(),
+                            ->required()->default('R 80'),
+                        Select::make('vehicle_color')
+                            ->options([
+                                'Hitam' => 'Hitam',
+                                'Putih' => 'Putih',
+                            ]),
+                        Forms\Components\TextInput::make('vehicle_year')->numeric()->required()->default('2019'),
+                        Forms\Components\TextInput::make('license_plate')->required()->default('B 1234 XYZ'),
                         Forms\Components\FileUpload::make('stnk_photo')
                             ->image()
                             ->directory('stnk')
@@ -109,7 +116,7 @@ class MemberResource extends Resource
                             ->directory('car')
                             ->nullable(),
                         Forms\Components\Textarea::make('reason'),
-                        Forms\Components\Select::make('status')
+                        Forms\Components\Select::make('status')->default('verified')
                             ->options([
                                 'pending' => 'Pending',
                                 'verified' => 'Verified',
