@@ -210,9 +210,9 @@
                                 class="flex items-center justify-center w-8 h-8 mr-3 text-sm rounded-full bg-sky-100 text-sky-600">5</span>
                             Tell Us About You
                         </h4>
-                        <x-ui.label>Reason</x-ui.label>
-                        <x-ui.textarea wire:model="form.reason" placeholder="Share your passion for cars..."
-                            required></x-ui.textarea>
+                        <x-ui.label>Reason (optional)</x-ui.label>
+                        <x-ui.textarea wire:model="form.reason"
+                            placeholder="Share your passion for cars..."></x-ui.textarea>
                         @error('form.reason')
                             <p class="mt-1 text-sm italic text-red-500">{{ $message }}</p>
                         @enderror

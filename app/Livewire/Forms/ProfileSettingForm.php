@@ -33,8 +33,8 @@ class ProfileSettingForm extends Form
                 'max:255',
                 $userId ? 'unique:users,email,' . $userId : 'unique:users,email',
             ],
-            'phone'         => ['required', 'string'],
-            'ktp_sim'       => ['required', 'string'],
+            'phone'         => ['required', 'string', 'min:10', 'max:13'],
+            'ktp_sim'       => ['required', 'string', 'min:16', 'max:16'],
             'birth_place'   => ['nullable', 'string'],
             'birth_date'    => ['required', 'date'],
             'address'       => ['required', 'string'],
@@ -47,15 +47,15 @@ class ProfileSettingForm extends Form
         ];
 
         if ($this->profile_photo instanceof UploadedFile) {
-            $rules['profile_photo'] = ['image', 'max:2048'];
+            $rules['profile_photo'] = ['image', 'max:5000'];
         }
 
         if ($this->stnk_photo instanceof UploadedFile) {
-            $rules['stnk_photo'] = ['image', 'max:2048'];
+            $rules['stnk_photo'] = ['image', 'max:5000'];
         }
 
         if ($this->car_photo instanceof UploadedFile) {
-            $rules['car_photo'] = ['image', 'max:2048'];
+            $rules['car_photo'] = ['image', 'max:5000'];
         }
 
         return $rules;

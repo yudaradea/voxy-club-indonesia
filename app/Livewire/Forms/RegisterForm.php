@@ -6,6 +6,7 @@ use Livewire\Attributes\Validate;
 use Livewire\Form;
 use App\Models\User;
 use App\Models\Member;
+use Flasher\Toastr\Prime\Toastr;
 use Illuminate\Support\Facades\Auth;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Hash;
@@ -19,8 +20,8 @@ class RegisterForm extends Form
     protected $rules = [
         'name' => ['required', 'string', 'max:255'],
         'email' => ['required', 'email', 'unique:users,email'],
-        'phone' => ['required', 'string'],
-        'ktp_sim' => ['required', 'string'],
+        'phone' => ['required', 'string', 'min:10', 'max:13'],
+        'ktp_sim' => ['required', 'string', 'min:16', 'max:16'],
         'birth_place' => ['nullable', 'string'],
         'birth_date' => ['required', 'date'],
         'address' => ['required', 'string'],
@@ -32,9 +33,9 @@ class RegisterForm extends Form
         'reason' => ['nullable', 'string'],
         'password' => ['required', 'confirmed', 'min:8'],
         'password_confirmation' => ['required', 'same:password'],
-        'profile_photo' => ['required', 'image', 'max:2048'],
-        'stnk_photo' => ['required', 'image', 'max:2048'],
-        'car_photo' => ['nullable', 'image', 'max:2048'],
+        'profile_photo' => ['required', 'image', 'max:5000'],
+        'stnk_photo' => ['required', 'image', 'max:5000'],
+        'car_photo' => ['nullable', 'image', 'max:5000'],
     ];
 
     public function addMember()

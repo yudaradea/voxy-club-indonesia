@@ -10,6 +10,8 @@ use App\Models\Term;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 
+use function Laravel\Prompts\error;
+
 class Register extends Component
 {
     use WithFileUploads;
@@ -38,6 +40,12 @@ class Register extends Component
     {
         $this->form->addMember();
 
+        //  cek apakah ada validation error
+        // if ($this->form->getErrorBag()->isNotEmpty()) {
+        //     toastr()->error('Ada kesalahan dalam pengisian form. Silakan periksa kembali.', ['timeOut' => 5000]);
+        //     return;
+        // }
+
         $penerimaEmail = User::where('role', 'admin')->get();
         foreach ($penerimaEmail as $user) {
             Mail::to($user->email)->send(new RegisterMailForm([
@@ -57,6 +65,7 @@ class Register extends Component
     }
     public function render()
     {
+
         $term = Term::first();
         return view('livewire.auth.register', [
             'term' => $term
