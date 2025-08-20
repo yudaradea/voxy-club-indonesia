@@ -15,6 +15,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Actions\Action;
+use Illuminate\Contracts\View\View;
 
 class MemberResource extends Resource
 {
@@ -126,7 +128,17 @@ class MemberResource extends Resource
             ->columns([
                 ImageColumn::make('profile_photo')
                     ->label('Foto Profil')
-                    ->circular(),
+                    ->circular()
+                    ->action(
+                        Action::make('Lihat Gambar')
+                            ->modalHeading('Lihat Gambar')
+                            ->modalContent(fn($record): View => view(
+                                'filament.modals.view-image', // Buat file view ini
+                                ['imageUrl' => $record->profile_photo]
+                            ))
+                            ->modalSubmitAction(false) // Tombol submit tidak diperlukan
+                            ->modalCancelAction(false) // Tombol cancel juga tidak perlu
+                    ),
                 Tables\Columns\TextColumn::make('user.name')
                     ->label('Nama')
                     ->searchable(),
@@ -135,13 +147,24 @@ class MemberResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('phone')->label('No HP'),
                 Tables\Columns\TextColumn::make('license_plate')->label('Plat Nomor'),
+                ImageColumn::make('stnk_photo')
+                    ->action(
+                        Action::make('Lihat Gambar')
+                            ->modalHeading('Lihat Gambar')
+                            ->modalContent(fn($record): View => view(
+                                'filament.modals.view-image', // Buat file view ini
+                                ['imageUrl' => $record->stnk_photo]
+                            ))
+                            ->modalSubmitAction(false) // Tombol submit tidak diperlukan
+                            ->modalCancelAction(false) // Tombol cancel juga tidak perlu
+                    ),
                 Tables\Columns\BadgeColumn::make('status')
                     ->colors([
                         'warning' => 'pending',
                         'success' => 'verified',
                         'danger' => 'rejected',
                     ]),
-                Tables\Columns\TextColumn::make('jabatan')->label('Jabatan'),
+
             ])
             ->filters([])
             ->actions([
