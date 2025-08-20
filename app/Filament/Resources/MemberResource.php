@@ -81,7 +81,6 @@ class MemberResource extends Resource
                         Forms\Components\Textarea::make('address')->required(),
                         Forms\Components\Select::make('shirt_size')
                             ->options([
-                                '-' => '-',
                                 'S' => 'S',
                                 'M' => 'M',
                                 'L' => 'L',
