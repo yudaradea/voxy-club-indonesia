@@ -130,7 +130,7 @@ class MemberResource extends Resource
                     ->label('Foto Profil')
                     ->circular()
                     ->action(
-                        Action::make('Lihat Gambar')
+                        Action::make('Lihat Profil')
                             ->modalHeading('Lihat Gambar')
                             ->modalContent(fn($record): View => view(
                                 'filament.modals.view-image', // Buat file view ini
@@ -149,7 +149,7 @@ class MemberResource extends Resource
                 Tables\Columns\TextColumn::make('license_plate')->label('Plat Nomor'),
                 ImageColumn::make('stnk_photo')
                     ->action(
-                        Action::make('Lihat Gambar')
+                        Action::make('Lihat STNK')
                             ->modalHeading('Lihat Gambar')
                             ->modalContent(fn($record): View => view(
                                 'filament.modals.view-image', // Buat file view ini
