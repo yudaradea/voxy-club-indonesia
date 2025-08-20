@@ -64,7 +64,7 @@ class MemberResource extends Resource
                             ->label('Password Baru (opsional)')
                             ->password()
                             ->nullable()
-                            ->minLength(8),
+                            ->minLength(7),
                         // tidak disimpan ke tabel members
                     ]),
 
@@ -81,6 +81,7 @@ class MemberResource extends Resource
                         Forms\Components\Textarea::make('address')->required(),
                         Forms\Components\Select::make('shirt_size')
                             ->options([
+                                '-' => '-',
                                 'S' => 'S',
                                 'M' => 'M',
                                 'L' => 'L',
