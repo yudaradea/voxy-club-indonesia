@@ -1,5 +1,5 @@
 <!-- About Us Preview -->
-<section class="py-16 md:py-20">
+<section class="py-12 md:py-16">
     <div class="container px-6 mx-auto">
         <div class="grid items-center gap-12 lg:grid-cols-2">
             <div class="order-2 lg:order-1">

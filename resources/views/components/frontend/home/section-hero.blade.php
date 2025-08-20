@@ -48,29 +48,32 @@
 
         <!-- slides -->
         <!-- Change min-h-[50svh] to your preferred height size -->
-        <div class="relative w-full lg:h-screen h-[350px] md:h-[700px]">
+        <div class="relative w-full h-[320px] md:h-[700px] lg:h-[750px] rounded-b-lg shadow-sm">
             <template x-for="(slide, index) in slides">
                 <div x-cloak x-show="currentSlideIndex == index + 1" class="absolute inset-0"
                     x-transition.opacity.duration.1000ms>
 
-                    <img class="absolute inset-0 object-cover w-full h-full text-on-surface" x-bind:src="slide.imgSrc"
-                        x-bind:alt="slide.imgAlt" />
+                    <img class="absolute inset-0 object-cover w-full h-full rounded-b-lg shadow-sm text-on-surface"
+                        x-bind:src="slide.imgSrc" x-bind:alt="slide.imgAlt" />
                 </div>
             </template>
 
-            {{-- <div class="absolute inset-0 flex items-center justify-center bg-black/50">
+            <div class="absolute inset-0 flex items-center justify-center rounded-b-lg shadow-sm bg-black/50">
                 <div class="container flex flex-col items-center text-center text-white">
-                    <h1 class="mb-6 text-3xl font-bold text-center md:text-5xl lg:text-7xl ">
+                    <h1 class="mb-4 text-3xl font-bold text-center md:text-5xl lg:text-7xl ">
                         {{ $heroText->title }}
                     </h1>
                     <p class="mb-8 text-lg md:text-xl lg:text-2xl">
                         {{ $heroText->subtitle }}
                     </p>
-                    <a href="{{ route('register') }}" class="button-1">
-                        {{ $heroText->button_text }}
-                    </a>
+                    <div class="flex items-center justify-center gap-2 button-1">
+                        <a href="{{ route('register') }}">
+                            {{ $heroText->button_text }}
+                        </a>
+                        <i class="mt-0.5 ti ti-arrow-right"></i>
+                    </div>
                 </div>
-            </div> --}}
+            </div>
         </div>
     </div>
 </section>
