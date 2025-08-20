@@ -148,8 +148,8 @@
                         <div>
 
                             <x-ui.label>Reason</x-ui.label>
-                            <x-ui.textarea wire:model="form.reason" placeholder="Share your passion for cars..."
-                                required></x-ui.textarea>
+                            <x-ui.textarea wire:model="form.reason"
+                                placeholder="Share your passion for cars..."></x-ui.textarea>
                             @error('form.reason')
                                 <p class="mt-1 text-sm italic text-red-500">{{ $message }}</p>
                             @enderror
