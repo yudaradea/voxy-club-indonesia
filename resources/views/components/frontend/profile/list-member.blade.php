@@ -35,6 +35,7 @@
                         <th class="px-4 py-3 ">Foto</th>
                         <th class="px-4 py-3 ">Position</th>
                         <th class="px-4 py-3 ">Phone</th>
+                        <th class="px-4 py-3">No Pol</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,6 +58,7 @@
                                     {{ ucfirst($user->member->jabatan) }}</p>
                             </td>
                             <td class="px-4 py-3 whitespace-nowrap">{{ formatWhatsapp($user->member->phone) }}</td>
+                            <td class="px-4 py-3 whitespace-nowrap">{{ $user->member->license_plate }}</td>
                         </tr>
                     @empty
                         <tr>

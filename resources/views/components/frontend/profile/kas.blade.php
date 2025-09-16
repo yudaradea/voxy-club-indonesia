@@ -16,6 +16,7 @@
         <table class="w-full lg:min-w-[600px] text-sm text-left text-gray-500 whitespace-nowrap">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                 <tr>
+                    <th class="px-4 py-3">Nama</th>
                     <th class="px-4 py-3 ">Amount</th>
                     <th class="px-4 py-3 ">Notes</th>
                     <th class="px-4 py-3 ">Paid At</th>
@@ -26,6 +27,9 @@
                 @forelse ($kasHistory as $kas)
                     <tr class="border-b odd:bg-white even:bg-gray-100">
 
+                        <td class="px-4 py-3 font-medium text-slate-800 whitespace-nowrap">
+                            {{ $kas->member->user->name }}
+                        </td>
                         <td class="px-4 py-3 font-medium text-slate-800 ">
                             Rp{{ formatRupiah($kas->amount) }}
                         </td>

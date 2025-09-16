@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Contact;
 use App\Models\Member;
+use App\Models\Payment;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -30,7 +31,7 @@ class Profile extends Component
     public function render()
     {
         $user = Auth::user();
-        $kasHistory = $user->member->payments()->orderBy('created_at', 'desc')->get();
+        $kasHistory = Payment::orderBy('created_at', 'desc')->get();
         $contact = Contact::first();
 
         //for list member
