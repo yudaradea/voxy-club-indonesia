@@ -10,7 +10,7 @@
                     </h2>
                 </div>
                 <div
-                    class="mb-6 text-base prose text-gray-600 prose-a:no-underline prose-p:text-base prose-a:text-sky-600">
+                    class="mb-6 text-base prose text-justify text-gray-600 max-w-none prose-a:no-underline prose-p:text-base prose-a:text-sky-600">
                     {!! $about->description !!}
                 </div>
                 <a href="{{ route('about') }}" class="font-semibold text-sky-600 hover:underline">Learn More →</a>

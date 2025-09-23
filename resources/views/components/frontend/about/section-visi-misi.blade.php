@@ -17,7 +17,7 @@
             <div class="text-center">
                 <div class="mb-6">
                     <span
-                        class="text-2xl font-bold text-transparent md:text-4xl bg-gradient-to-r from-cyan-500 to-sky-500 bg-clip-text">MISI</span>
+                        class="text-2xl font-bold text-transparent md:text-4xl bg-gradient-to-r from-cyan-500 to-sky-500 bg-clip-text ">MISI</span>
                 </div>
                 <p class="text-base leading-relaxed text-justify text-gray-700 ">
                     {{ $about->misi }}
@@ -25,9 +25,10 @@
             </div>
         </div>
         <div class="mt-10 lg:mt-16">
-            <p class="text-base leading-normal text-justify text-gray-700">
-                {{ $about->description }}
-            </p>
+            <div
+                class="mb-4 text-base leading-normal prose text-justify text-gray-700 prose-a:no-underline prose-p:text-base prose-a:text-sky-600 max-w-none">
+                {!! $about->description !!}
+            </div>
         </div>
     </div>
 </section>
