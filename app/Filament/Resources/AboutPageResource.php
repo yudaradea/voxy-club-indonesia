@@ -8,6 +8,7 @@ use App\Models\AboutPage;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -43,7 +44,7 @@ class AboutPageResource extends Resource
 
                     Textarea::make('visi')->required()->rows(5),
                     Textarea::make('misi')->required()->rows(5),
-                    Textarea::make('description')->required()->rows(6),
+                    RichEditor::make('description')->required(),
 
                 ])
             ]);

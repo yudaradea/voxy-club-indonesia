@@ -7,7 +7,7 @@
 }
 
 .button-1 {
-    @apply px-6 py-2 md:px-8 md:py-3 text-base md:text-lg font-semibold transition transform rounded-xl bg-gradient-to-r from-sky-500 to-cyan-500 hover:shadow-xl;
+    @apply px-6 py-2 text-base font-semibold transition transform md:px-8 md:py-3 md:text-lg rounded-xl bg-gradient-to-r from-sky-500 to-cyan-500 hover:shadow-xl;
 }
 
 .button-menu {
@@ -15,7 +15,7 @@
 }
 
 .button-login {
-    @apply px-6 py-2 text-base font-semibold text-slate-700 border-2 border-sky-500 rounded-xl hover:shadow-xl;
+    @apply px-6 py-2 text-base font-semibold border-2 text-slate-700 border-sky-500 rounded-xl hover:shadow-xl;
 }
 
 ::-webkit-scrollbar {

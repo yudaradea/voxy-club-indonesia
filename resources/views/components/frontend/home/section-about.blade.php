@@ -9,9 +9,10 @@
                         About Our Community
                     </h2>
                 </div>
-                <p class="mb-6 text-base text-justify text-gray-600">
-                    {{ $about->description }}
-                </p>
+                <div
+                    class="mb-6 text-base prose text-gray-600 prose-a:no-underline prose-p:text-base prose-a:text-sky-600">
+                    {!! $about->description !!}
+                </div>
                 <a href="{{ route('about') }}" class="font-semibold text-sky-600 hover:underline">Learn More →</a>
             </div>
             <div class="order-1 hidden lg:order-2 lg:block">
